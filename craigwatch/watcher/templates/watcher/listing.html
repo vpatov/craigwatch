@@ -1,0 +1,19 @@
+{% extends 'watcher/layout.html' %}
+
+{% block content %}
+<h3 class="center-align green lighten-1">{{listing.title}}</h3>
+
+
+<div class="card">
+    <div class="card-content">
+        {{listing.description}}
+    </div>
+    <div class="card-action">
+        {{listing.time_posted}}
+    </div>
+</div>
+
+
+<a href="/watcher" class="btn">Go back</a>
+{% endblock %}
+

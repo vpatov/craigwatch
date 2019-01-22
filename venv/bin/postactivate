@@ -1,0 +1,4 @@
+cd ~/repos/craigwatch/
+set -a
+source .env
+set +a
