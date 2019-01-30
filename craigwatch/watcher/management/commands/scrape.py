@@ -82,20 +82,20 @@ class Command(BaseCommand):
 
 
 
-    def is_removed(self,soup):
+    def is_removed(self,soup: BeautifulSoup):
         removed_div = soup.find('div',{'class':'removed'})
         if removed_div is not None:
             return True
 
 
-    def get_timestamp(self,soup):
+    def get_timestamp(self,soup: BeautifulSoup):
         timetag = soup.find('time',{'class':['date','timeago']})
         datestr = timetag.get('datetime')
         timestamp = parser.parse(datestr)
         return timestamp
 
 
-    def get_coordinates(self,soup):
+    def get_coordinates(self,soup: BeautifulSoup):
 
         map_leaflet = soup.find('div',{"class":["viewposting","leaflet-container"]})
         latitude = map_leaflet.get('data-latitude')
@@ -105,7 +105,7 @@ class Command(BaseCommand):
 
         return coords
 
-    def get_description(self,soup):
+    def get_description(self,soup: BeautifulSoup):
 
         section = soup.find('section',{'id':'postingbody'})
         section.find('p',{'class':'print-qrcode-label'}).decompose()   
