@@ -11,6 +11,21 @@
     <div class="card-action">
         {{listing.time_posted}}
     </div>
+    
+    <div class="card-content">
+        {% for image_url in listing.split_image_urls %}
+            <img src="{{image_url}}" style="max-height:300px">
+
+            <!-- <img style="height:725px;max-width:500px;width"> -->
+
+            <!-- <li class="collection-item"><a href="watcher/listing/{{listing.id}}">{{listing.title}}</a></li> -->
+        {% endfor %}
+    </div>
+
+    <div class="card-content">
+        <a href="{{listing.listingurl.url}}">Original Listing</a>
+    </div>
+
 </div>
 
 

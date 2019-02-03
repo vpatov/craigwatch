@@ -3,10 +3,36 @@
 {% block content %}
 <h3 class="center-align blue lighten-2">{{title}}</h3>
 
-<p> Get close to me, momma told me, never sell work </p>
+<!-- <a href="accounts/login">Log In</a> -->
+
+
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">CraigWatcher</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        {% if user.is_authenticated %}
+        <li>{{ user.username }}</li>
+        <li><a href="watcher/preferences">Preferences</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Register</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+        
 <ul class="collection">
-    {% for listing in listings%}
-        <li class="collection-item"><a href="watcher/listings/{{listing.id}}">{{listing.title}}</a></li>
+    {% for listing in listings %}
+        <li class="collection-item"><a href="watcher/listing/{{listing.id}}">{{listing.title}}</a>
+        {% for img_url in listing.split_image_urls %}
+                <img src="{{img_url}}"align="right" style="max-height:20px">
+        {% endfor %}
+            
+        </li>
+        
     {% endfor %}
 
 </ul>
