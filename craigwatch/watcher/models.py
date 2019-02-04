@@ -34,9 +34,9 @@ class ListingRating(models.Model):
 
 # I think it might be much easier for me to imply serialize this 
 class KeywordPriorityPair(models.Model):
-   keyword = models.CharField(max_length=220)
-   priority = models.IntegerField(null=False)
-   itemhunt = models.ForeignKey(
+    keyword = models.CharField(max_length=220)
+    priority = models.IntegerField(null=False)
+    itemhunt = models.ForeignKey(
         'ItemHunt',
         on_delete=models.CASCADE,
     )
