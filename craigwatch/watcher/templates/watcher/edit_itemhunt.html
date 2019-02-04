@@ -1,0 +1,16 @@
+
+{% extends 'watcher/layout.html' %}
+
+{% block content %}
+
+<form action="process_itemhunt" method="POST">
+    {% csrf_token %}
+    {{itemhuntform}}
+    <input type="submit" value="Submit">
+</form>
+<br>
+
+
+
+{% endblock %}
+

@@ -10,10 +10,31 @@
 <body>
     <header class="container center-align">
         <h1>CraigWatcher</h1>
-
     </header>
 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
     <div class="container">
+        <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">CraigWatcher</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                {% if user.is_authenticated %}
+                    <li>{{ user.username }}</li>
+                    <li><a href="watcher/preferences">Preferences</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'signup' %}">Register</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        </nav>
+
+
         {% block content %}
         {% endblock %}
         <br>

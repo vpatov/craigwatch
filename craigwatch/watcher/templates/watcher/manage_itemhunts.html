@@ -1,0 +1,18 @@
+{% extends 'watcher/layout.html' %}
+
+{% block content %}
+    <br>
+    <a href="/watcher/edit_itemhunt/new">New ItemHunt</a>
+
+    <ul class="collection">
+        {% for itemhunt in itemhunts %}
+
+        <li class="collection-item">
+            <a href="{% url 'edit_itemhunt' %}?ihname={{itemhunt.name}}">{{itemhunt.name}}</a>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+

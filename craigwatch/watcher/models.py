@@ -5,15 +5,15 @@ from django.contrib.auth import get_user_model
 
 
 class ListingURL(models.Model):
-    title = models.CharField(max_length=200)
     url = models.TextField(unique=True)
+    title = models.CharField(max_length=160)
     scraped = models.BooleanField(default=False)
 
 
 class Listing(models.Model):
+    url = models.TextField(unique=True)
     title = models.CharField(max_length=160)
     description = models.TextField(null=True)
-    listingurl = models.ForeignKey(ListingURL, on_delete=models.CASCADE, null=True)
     html = models.TextField(null=True)
     location = models.TextField()
     image_urls = models.TextField(default="")
@@ -32,6 +32,7 @@ class Listing(models.Model):
 class ListingRating(models.Model):
     pass
 
+# I think it might be much easier for me to imply serialize this 
 class KeywordPriorityPair(models.Model):
    keyword = models.CharField(max_length=220)
    priority = models.IntegerField(null=False)
@@ -41,9 +42,10 @@ class KeywordPriorityPair(models.Model):
     )
 
 class ItemHunt(models.Model):
+    name        = models.CharField(max_length=80,null=False)
     zipcode     = models.CharField(max_length=5)
     radius      = models.IntegerField(null=True)
-    section     = models.CharField(default="free",max_length=160)
+    section     = models.CharField(default="free",max_length=80)
     minprice    = models.FloatField(default=0.0)
     maxprice    = models.FloatField(default=float("inf"))
     listing_age = models.FloatField(null=False)

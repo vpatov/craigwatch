@@ -3,26 +3,6 @@
 {% block content %}
 <h3 class="center-align blue lighten-2">{{title}}</h3>
 
-<!-- <a href="accounts/login">Log In</a> -->
-
-
-
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">CraigWatcher</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-        {% if user.is_authenticated %}
-        <li>{{ user.username }}</li>
-        <li><a href="watcher/preferences">Preferences</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% else %}
-          <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="{% url 'signup' %}">Register</a></li>
-        {% endif %}
-      </ul>
-    </div>
-  </nav>
         
 <ul class="collection">
     {% for listing in listings %}

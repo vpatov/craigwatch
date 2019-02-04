@@ -136,7 +136,7 @@ class Command(BaseCommand):
 
         listing.html = r.content
         listing.title = lurl.title
-        listing.listingurl = lurl
+        listing.url= listing_url
         listing.save()
 
         lurl.scraped = True

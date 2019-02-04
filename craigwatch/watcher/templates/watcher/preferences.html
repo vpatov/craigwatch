@@ -4,20 +4,9 @@
 Preferences Page!
 
 
+<a href="/watcher/manage_itemhunts">Manage ItemHunts</a>
 
-<form action="add_itemhunt" method="POST">
-    {% csrf_token %}
-    {{itemhuntform}}
-    <input type="submit" value="Submit">
-</form>
-<br>
-{% for itemhunt in itemhunts %}
 
-{{itemhunt.zipcode}}
 
-{% endfor %}
-
-<p> Let's move this text down.</p>
-<p> Further </p>
 {% endblock %}
 

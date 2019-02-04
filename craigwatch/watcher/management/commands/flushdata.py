@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from watcher.models import Listing, ListingURL
+from watcher.models import Listing, ListingURL, ItemHunt
 
 class Command(BaseCommand):
     help = 'Closes the specified poll for voting'
@@ -14,3 +14,4 @@ class Command(BaseCommand):
 
         Listing.objects.all().delete()
         ListingURL.objects.all().delete()
+        ItemHunt.objects.all().delete()
